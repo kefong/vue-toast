@@ -4,7 +4,7 @@
 	</transition>
 </template>
 <script>
-require('./css/iconfont/iconfont.css')//全局样式
+require('./css/iconfont/iconfont.css')
 export default {
 	name: 'toast-view',
 	data: function(){

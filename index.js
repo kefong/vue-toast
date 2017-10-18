@@ -1,3 +1,7 @@
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author liupeng (529539000@qq.com) @kefong
+*/
 import view from './view'
 var Toast = {
 		vm: null,
@@ -12,12 +16,12 @@ Toast.install = function(Vue, options){
 	// Vue
 	Toast.vm = Vue;
 	
-	// 初始化配置
+	// init
 	for (var property in options) {
 		Toast.opt[property] = options[property];
     }
 	
-	// 创建容器
+	// create box
 	if(Toast.body === null){
 		Toast.body = document.createElement('div');
 		Toast.body.className = 'kefong-vue-toast';
@@ -25,7 +29,7 @@ Toast.install = function(Vue, options){
 	}
 	
 	Vue.prototype.$toast = function(message, opt){
-		// 设置message和type
+		// set message | type
 		if(typeof(opt) === 'string'){
 			Toast.opt.type = opt;
 		}else if(typeof(opt) === 'object'){
@@ -34,8 +38,7 @@ Toast.install = function(Vue, options){
 		    }
 		}
 		
-		//console.log(opt.type);
-		// 生成div并显示到当前页面
+		// create div and show
 		var toastView = Vue.component('toast-view', view);
 		var v = new toastView();
 		v.message = message;
@@ -45,7 +48,7 @@ Toast.install = function(Vue, options){
 		Toast.body.appendChild(v.$mount().$el);
 	}
 	
-	// 报错提醒
+	// error
 	Vue.prototype.$toast.error = function(message, opt){
 		if(typeof(opt) === 'undefined'){
 			opt = {type: 'error'}
@@ -57,7 +60,7 @@ Toast.install = function(Vue, options){
 		Vue.prototype.$toast(message, opt);
 	}
 	
-	// 成功提醒
+	// success
 	Vue.prototype.$toast.success = function(message, opt){
 		if(typeof(opt) === 'undefined'){
 			opt = {type: 'success'}
