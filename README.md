@@ -37,6 +37,14 @@ export default {
 <style scoped>
 </style>
 ```
+## Props
+
+| Prop            | Description                                     | Type    | Default   |
+|:----------------|:------------------------------------------------|:--------|:----------|
+| message         |                                                 | String  |           |
+| delay           | 自动隐藏需等待多少毫秒                                                                               | Number  | 3000      |
+| type            | success/error                                   | String  | 'success' |
+
 ## Demo
 [demo](http://www.kefong.com/vue/#/toast)
 
