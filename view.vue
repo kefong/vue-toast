@@ -11,7 +11,7 @@ export default {
 		return {
 			message: '',
 			show: true,
-			delay: 3000,
+			delay: 0,
 			type: 'kefong-toast-success',
 			top: 5
 		}
@@ -19,10 +19,13 @@ export default {
 	props: {},
 	directives: {},
 	created: function(){
+		
+	},
+	mounted: function(){
 		var that = this;
-		setTimeout(function(){
-			that.close();			
-		}, 3000);
+		setTimeout(function(){			
+			that.close();
+		}, that.delay);
 	},
 	methods: {
 		close: function(){
